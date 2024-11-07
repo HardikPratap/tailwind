@@ -19,7 +19,7 @@ function App() {
     </div>
     <div className='text-center text-para text-xs flex flex-col'>
       Please confirm your birth year. This data will not be saved
-      <input className='w-64 mt-3 px-4 py-3 self-center rounded-md text-black bg-input' 
+      <input className='w-64 mt-3 px-4 py-3 self-center rounded-md text-gray-300 bg-input text-s' 
       placeholder='Your DOB' 
       type="date" 
       onChange={handleDate}
