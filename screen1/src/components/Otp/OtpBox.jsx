@@ -1,46 +1,42 @@
 import React from 'react'
-import { useMemo } from 'react';
+import { useMemo,useState } from 'react';
 
 
 function OtpBox({value,valueLength,onChange}) {
-    const Regex_digit= /^\d$/
+    const Regex_digit= /^\d+$/
 
     const valueItems = useMemo(()=>{
         const valueArr= value.split('')
         const items=[]
-        console.log(valueArr)
-        console.log(valueLength)
 
         for(let i=0; i<valueLength; i++){
             const char = valueArr[i]
             const isNumber = Regex_digit.test(char)
-            items.push(isNumber ? char : '');
+            items.push(isNumber ? char : "");
         }
         return items
-    },[value,valueLength])
+    }, [value,valueLength])
 
-    function focusToNext(e){
-       const nextElementSibling = e.target.nextElementSibling;
+    function focusToNext(target){
+       const nextElementSibling =target.nextElementSibling;
        if(nextElementSibling){
         nextElementSibling.focus()
        } 
     }
 
-    function focusToPrevious(e){
-        const previousElement= e.target.previousElementSibling
-        if(previousElement){
-            previousElement.focus()
+    function focusToPrevious(target){
+        const previousElementSibling= target.previousElementSibling
+        if(previousElementSibling){
+            previousElementSibling.focus()
         }
     }
 
     function inputOnChange(e,index){
         const target=e.target
         let targetValue= target.value
-        console.log(targetValue)
         const isNumber=Regex_digit.test(targetValue)
-        console.log(isNumber)
         
-        if(!isNumber || targetValue !== ''){
+        if(!isNumber && targetValue !== ''){
             return
         }
 
@@ -85,7 +81,7 @@ function OtpBox({value,valueLength,onChange}) {
                 inputMode='numeric'
                 autoComplete='one-time-code'
                 pattern='\d{1}'
-                maxLength={6}
+                maxLength={1}
                 value={digit}
                 onChange={(e)=>inputOnChange(e,index)}
                 onKeyDown={inputOnKeyDown}

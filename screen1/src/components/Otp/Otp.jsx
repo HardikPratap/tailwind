@@ -5,9 +5,9 @@ import { useState } from 'react'
 function Otp() {
     const [value , setValue] = useState('');
 
-    function onChange(newValue){
+    function handleChange(newValue){
         setValue(newValue)
-        console.log(newValue)
+    
     }
 
   return (
@@ -24,7 +24,7 @@ function Otp() {
          
          {/* Otp Box */}
          <div className='max-w-fit mx-auto'>
-            <OtpBox onChange={onChange} value={value} valueLength={6} />
+            <OtpBox onChange={handleChange} value={value} valueLength={6} />
 
          </div>
 
