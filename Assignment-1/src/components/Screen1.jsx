@@ -23,7 +23,7 @@ function Screen1() {
     />
   </div>
   <div  className={`max-w-fit mx-auto mt-3 px-24 py-1 text-center text-neutral-300 bg-button rounded-md cursor-pointer ${
-        isDate ? 'bg-heading text-blue-950' : ''
+        isDate ? 'text-red-950 bg-heading' : ''
       } transition-all ease-in-out delay-100 duration-200`}>
       <span className='font-medium'>Continue</span>
     </div>

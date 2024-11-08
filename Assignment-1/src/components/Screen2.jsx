@@ -26,7 +26,7 @@ function Screen2() {
   </div>
   <div  className={`max-w-fit mx-auto mt-3 px-24 py-1 text-center text-neutral-300 bg-button rounded-md cursor-pointer 
     ${
-        changed ?'bg-heading text-black':''
+        changed ?'bg-heading text-red-950':''
     }  transition-all ease-in-out delay-100 duration-200`}>
       <span className='font-medium'>Continue</span>
     </div>
