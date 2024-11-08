@@ -5,7 +5,7 @@ function Screen1() {
     const[isDate, setIsDate]= useState(false)
 
   function handleDate(e){
-    setIsDate(!!e.target.value)
+    setIsDate(e.target.value)
   }
   return <div className='content-center'>
   <h1 className='text-center m-20 text-3xl'>

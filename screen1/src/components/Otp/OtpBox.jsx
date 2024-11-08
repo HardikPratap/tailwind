@@ -4,6 +4,10 @@ import { useMemo,useState } from 'react';
 
 function OtpBox({value,valueLength,onChange}) {
     const Regex_digit= /^\d+$/
+    const [chnagedState,setChangedState]= useState(false)
+    function isOtp(e){
+        setChangedState(true)
+    }
 
     const valueItems = useMemo(()=>{
         const valueArr= value.split('')
@@ -46,6 +50,10 @@ function OtpBox({value,valueLength,onChange}) {
         if (isNumber) {
             focusToNext(target);
           }
+        
+          if(!target.nextElementSibling || value.length== valueLength){
+            isOtp(e);
+          }
     }
 
     const inputOnKeyDown = (e) => {
@@ -74,21 +82,26 @@ function OtpBox({value,valueLength,onChange}) {
         target.setSelectionRange(0, target.value.length);
       };
   return (
-    <div className='flex max-w-fit mx-auto gap-x-4'>
-      {valueItems.map((digit, index) =>(
-        <input type="text"
-                key={index}
-                inputMode='numeric'
-                autoComplete='one-time-code'
-                pattern='\d{1}'
-                maxLength={1}
-                value={digit}
-                onChange={(e)=>inputOnChange(e,index)}
-                onKeyDown={inputOnKeyDown}
-                onFocus={inputOnFocus}
-                className='w-12 mt-3 py-3 px-2 rounded-md text-center text-lg bg-input text-white'
-        />
-      ))}
+    <div>
+        <div className='flex max-w-fit mx-auto gap-x-4'>
+        {valueItems.map((digit, index) =>(
+            <input type="text"
+                    key={index}
+                    inputMode='numeric'
+                    autoComplete='one-time-code'
+                    pattern='\d{1}'
+                    maxLength={1}
+                    value={digit}
+                    onChange={(e)=>inputOnChange(e,index)}
+                    onKeyDown={inputOnKeyDown}
+                    onFocus={inputOnFocus}
+                    className={'w-12 mt-3 py-2 px-1 rounded-md text-center text-lg bg-input text-white'}
+            />
+        ))}
+        </div>
+        <div  className={`max-w-fit mx-auto mt-7 px-28 py-1 text-center text-neutral-300 bg-button rounded-md cursor-pointer ${chnagedState? 'bg-heading text-red-950' : '' } transition-all ease-in-out delay-100 duration-200`}>
+      <span className='font-medium'>Continue</span>
+    </div>
     </div>
   )
 }
