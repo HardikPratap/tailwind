@@ -4,7 +4,7 @@ import { EvervaultCardDemo } from './test'
 
 function Home() {
   return (
-    <div className='text-white h-screen flex  justify-center items-center '>
+    <div className='text-white h-screen flex flex-col mt-80 md:mt-0 md:flex-row  justify-center items-center '>
      
       <Link to='/Screen1' className='m-10'>
         <EvervaultCardDemo title="Screen 1" description={" Date Component"}/> 
