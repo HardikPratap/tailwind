@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Header() {
   return (
-    <div className="flex flex-row  gap-16 m-10 rounded-xl bg-input text-gray-400 max-w-fit justify-self-center">
+    <div className="flex flex-row  gap-16 mt-10 rounded-xl bg-input text-gray-400 max-w-fit justify-self-center">
         <Link to={"/"}>
       <div className=' px-3 py-2 rounded-md  font-semibold text-lg'>Home</div>
       </Link>
@@ -14,7 +14,6 @@ function Header() {
       <div className=' px-3 py-2 rounded-md  font-semibold text-lg'>E-mail</div>
       </Link>
       <Link to={"/OTP"}>
-
       <div className=' px-3 py-2 rounded-md  font-semibold text-lg'>OTP</div>
       </Link>
     </div>

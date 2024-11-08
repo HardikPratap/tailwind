@@ -7,8 +7,7 @@ function Home() {
     <div className='text-white h-screen flex  justify-center items-center '>
      
       <Link to='/Screen1' className='m-10'>
-        <EvervaultCardDemo title="Screen 1" description={" Date Component"}/>
-            
+        <EvervaultCardDemo title="Screen 1" description={" Date Component"}/> 
       </Link>
       <Link to='/Screen2' className='m-10'>
         <EvervaultCardDemo title="Screen 2" description={" Email Component"}/>
